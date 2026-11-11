@@ -63,6 +63,30 @@ function ExperienceIcon({ active }) {
   );
 }
 
+function GaneshSticker() {
+  return (
+    <svg
+      className="ganesh-sticker"
+      viewBox="0 0 120 140"
+      role="img"
+      aria-label="Lord Ganesha wedding emblem"
+    >
+      <circle cx="60" cy="70" r="55" fill="#fdf8f5" stroke="#b49b69" strokeWidth="2" />
+      <circle cx="60" cy="70" r="49" fill="none" stroke="#d8c9a8" strokeWidth="1" />
+      <path d="M47 31 60 17l13 14-4 8H51z" fill="#b49b69" />
+      <circle cx="60" cy="29" r="3" fill="#fdf8f5" />
+      <path d="M48 48C37 36 29 42 32 54c2 8 8 12 16 11m24-17c11-12 19-6 16 6-2 8-8 12-16 11" fill="#7d8d62" stroke="#3b5a21" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M45 43q15-13 30 0c6 8 3 23-3 29-3 4-8 6-12 6s-9-2-12-6c-6-6-9-21-3-29Z" fill="#f2e7d2" stroke="#3b5a21" strokeWidth="2" />
+      <path d="M47 54h8m10 0h8" fill="none" stroke="#3b5a21" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M59 66c-1 9-5 13-1 18 4 5 13 3 13-2 0-4-5-5-7-2" fill="none" stroke="#3b5a21" strokeWidth="4" strokeLinecap="round" />
+      <path d="M50 68c-1 6-5 8-9 7m29-7c1 6 5 8 9 7" fill="none" stroke="#b49b69" strokeWidth="2" strokeLinecap="round" />
+      <path d="M43 98q17-13 34 0l8 9H35z" fill="#7d8d62" stroke="#3b5a21" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M46 104q14 6 28 0m-20 8q6 3 12 0" fill="none" stroke="#fdf8f5" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="60" cy="91" r="3" fill="#b49b69" />
+    </svg>
+  );
+}
+
 function FloralBand() {
   return (
     <svg viewBox="0 0 900 150" preserveAspectRatio="xMidYMid slice">
@@ -363,6 +387,7 @@ function App() {
               src={asset("hero-foliage.jpg")}
               alt=""
             />
+            <GaneshSticker />
             <div className="band" aria-hidden="true">
               <FloralBand />
             </div>

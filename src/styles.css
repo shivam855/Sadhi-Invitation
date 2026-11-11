@@ -111,6 +111,16 @@ a:focus-visible {
   width: 100%;
 }
 
+.hero > .ganesh-sticker {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  left: 5%;
+  z-index: 5;
+  width: clamp(42px, 7vw, 68px);
+  height: auto;
+  filter: drop-shadow(0 2px 3px rgba(49, 61, 38, 0.16));
+}
+
 .art {
   display: block;
   max-width: none;
