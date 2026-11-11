@@ -111,16 +111,6 @@ a:focus-visible {
   width: 100%;
 }
 
-.hero > .ganesh-sticker {
-  position: absolute;
-  top: max(12px, env(safe-area-inset-top));
-  left: 5%;
-  z-index: 5;
-  width: clamp(42px, 7vw, 68px);
-  height: auto;
-  filter: drop-shadow(0 2px 3px rgba(49, 61, 38, 0.16));
-}
-
 .art {
   display: block;
   max-width: none;
@@ -903,8 +893,10 @@ a:focus-visible {
 .intro-date {
   color: var(--deep);
   font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.21em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
 }
 
 .open-button {
@@ -997,7 +989,7 @@ a:focus-visible {
   }
 
   .intro-flower {
-    width: 48vw;
+    width: 100%;
   }
 
   .intro-card {
@@ -1010,13 +1002,27 @@ a:focus-visible {
   }
 
   .intro-date {
-    font-size: 9px;
-    letter-spacing: 0.13em;
+    font-size: 11px;
+    letter-spacing: 0.03em;
   }
 
   .hero {
-    min-height: 100vh;
-    min-height: 100svh;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 0.96;
+  }
+
+  .who small {
+    font-size: max(10px, 1.6cqw);
+  }
+
+  .who h1,
+  .who h2 {
+    font-size: max(16px, 5.1cqw);
+  }
+
+  .hero-date {
+    font-size: max(10px, 1.8cqw);
   }
 
   .band {
@@ -1036,6 +1042,11 @@ a:focus-visible {
 
   .ceremony {
     padding-top: 32px;
+    padding-bottom: 24px;
+  }
+
+  .reception {
+    padding-top: 24px;
   }
 
   .parents {
