@@ -531,7 +531,7 @@ function App() {
           <p>Joyfully invite you to celebrate their wedding</p>
           <span className="intro-date">Friday · 11 December 2026 · Agra</span>
           <button className="open-button" onClick={openInvitation}>
-            Open invitation <span aria-hidden="true">→</span>
+            Open invitation
           </button>
         </div>
       </div>
