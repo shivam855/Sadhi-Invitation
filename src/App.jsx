@@ -6,6 +6,7 @@ const venueAddress =
   "125, Futta Tora Police Chowki, ke samne, Tajganj, Agra, Uttar Pradesh 282004";
 const mapSearch =
   "https://www.google.com/maps/search/?api=1&query=532C%2BJ93+Tora+Police+Chowki+Tajganj+Agra";
+const asset = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`;
 
 const events = [
   {
@@ -331,7 +332,7 @@ function App() {
           <div className="hero-artwork">
             <img
               className="art top"
-              src="/assets/hero-foliage.jpg"
+              src={asset("hero-foliage.jpg")}
               alt=""
             />
             <div className="band" aria-hidden="true">
@@ -339,13 +340,13 @@ function App() {
             </div>
             <figure className="photo groom">
               <img
-                src="/assets/shivam.jpg"
+                src={asset("shivam.jpg")}
                 alt="Shivam Rathour, the groom, in a maroon suit"
               />
             </figure>
             <figure className="photo bride">
               <img
-                src="/assets/shikha.jpg"
+                src={asset("shikha.jpg")}
                 alt="Shikha Rathore, the bride, in a peach gown"
               />
             </figure>
@@ -359,7 +360,7 @@ function App() {
             </div>
             <img
               className="hero-flower"
-              src="/assets/floral-corner.jpg"
+              src={asset("floral-corner.jpg")}
               alt=""
             />
             <p className="hero-date">Friday&nbsp; | &nbsp;11 December 2026</p>
@@ -490,11 +491,11 @@ function App() {
       </main>
 
       <div className={`intro${isOpen ? " intro-open" : ""}`} aria-hidden={isOpen}>
-        <img className="intro-foliage" src="/assets/hero-foliage.jpg" alt="" />
+        <img className="intro-foliage" src={asset("hero-foliage.jpg")} alt="" />
         <div className="intro-floral-band" aria-hidden="true">
           <FloralBand />
         </div>
-        <img className="intro-flower" src="/assets/floral-corner.jpg" alt="" />
+        <img className="intro-flower" src={asset("floral-corner.jpg")} alt="" />
         <div className="intro-card">
           <span className="eyebrow">Together with their families</span>
           <h1>Shivam <i>&amp;</i> Shikha</h1>
@@ -529,7 +530,7 @@ function App() {
           </button>
         )}
       </div>
-      <audio ref={audioRef} loop preload="none" src="/assets/wedding-melody.mp3" />
+      <audio ref={audioRef} loop preload="none" src={asset("wedding-melody.mp3")} />
     </>
   );
 }
