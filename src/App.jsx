@@ -244,7 +244,13 @@ function App() {
   const [experienceOn, setExperienceOn] = useState(false);
   const [audioError, setAudioError] = useState("");
   const audioRef = useRef(null);
+  const scrollStartTimeout = useRef(null);
   const scrollPosition = useRef(0);
+
+  useEffect(
+    () => () => window.clearTimeout(scrollStartTimeout.current),
+    [],
+  );
 
   useEffect(() => {
     document.documentElement.classList.toggle("invitation-locked", !isOpen);
@@ -299,10 +305,27 @@ function App() {
   const openInvitation = () => {
     setIsOpen(true);
     window.scrollTo({ top: 0, behavior: "instant" });
+    scrollPosition.current = 0;
+    setAudioError("");
+    setExperienceOn(true);
+    if (audioRef.current) {
+      audioRef.current.volume = 0.7;
+      audioRef.current.play().catch((error) => {
+        console.error("Unable to play the invitation music:", error);
+        setAudioError("Music could not start. Auto-scroll is still running.");
+      });
+    }
+    scrollStartTimeout.current = window.setTimeout(() => {
+      scrollPosition.current = window.scrollY;
+      setAutoScroll(true);
+      scrollStartTimeout.current = null;
+    }, 2000);
   };
 
   const toggleExperience = () => {
     if (experienceOn) {
+      window.clearTimeout(scrollStartTimeout.current);
+      scrollStartTimeout.current = null;
       audioRef.current?.pause();
       setExperienceOn(false);
       setAutoScroll(false);
@@ -531,7 +554,7 @@ function App() {
             }
             aria-pressed={experienceOn}
           >
-            <ExperienceIcon active={experienceOn && autoScroll} />
+            <ExperienceIcon active={experienceOn} />
           </button>
         )}
       </div>
