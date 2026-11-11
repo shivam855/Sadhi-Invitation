@@ -192,6 +192,7 @@ a:focus-visible {
   margin-bottom: 0.4cqw;
   color: #3a3a2e;
   font-size: max(9px, 1.6cqw);
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
