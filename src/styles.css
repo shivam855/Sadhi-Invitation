@@ -24,6 +24,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html.invitation-auto-scrolling {
+  scroll-behavior: auto !important;
+}
+
 html.invitation-locked,
 html.invitation-locked body {
   overflow: hidden;
@@ -928,6 +932,22 @@ a:focus-visible {
   right: max(20px, env(safe-area-inset-right));
   bottom: max(19px, env(safe-area-inset-bottom));
   display: flex;
+}
+
+.experience-status {
+  position: fixed;
+  z-index: 12;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(76px, calc(env(safe-area-inset-bottom) + 76px));
+  max-width: min(320px, calc(100vw - 32px));
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 3px 10px rgba(36, 55, 22, 0.12);
+  color: var(--deep);
+  font: 12px/1.5 var(--sans);
 }
 
 .control-button {

@@ -242,6 +242,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [autoScroll, setAutoScroll] = useState(false);
   const [experienceOn, setExperienceOn] = useState(false);
+  const [audioError, setAudioError] = useState("");
   const audioRef = useRef(null);
   const scrollPosition = useRef(0);
 
@@ -253,6 +254,7 @@ function App() {
   useEffect(() => {
     if (!autoScroll) return undefined;
 
+    document.documentElement.classList.add("invitation-auto-scrolling");
     let frameId;
     let previousTime = 0;
     const scroll = (time) => {
@@ -287,6 +289,7 @@ function App() {
 
     return () => {
       window.cancelAnimationFrame(frameId);
+      document.documentElement.classList.remove("invitation-auto-scrolling");
       ["wheel", "touchstart", "mousedown", "keydown"].forEach((event) =>
         window.removeEventListener(event, pauseOnInput),
       );
@@ -307,22 +310,24 @@ function App() {
     }
 
     if (window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - 2) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.documentElement.classList.add("invitation-auto-scrolling");
+      window.scrollTo(0, 0);
       scrollPosition.current = 0;
     } else {
       scrollPosition.current = window.scrollY;
     }
+    setAudioError("");
+    setExperienceOn(true);
+    setAutoScroll(true);
     if (audioRef.current) {
       audioRef.current.volume = 0.7;
       audioRef.current
         .play()
-        .catch(() => {
-          setExperienceOn(false);
-          setAutoScroll(false);
+        .catch((error) => {
+          console.error("Unable to play the invitation music:", error);
+          setAudioError("Music could not start. Auto-scroll is still running.");
         });
     }
-    setExperienceOn(true);
-    setAutoScroll(true);
   };
 
   return (
@@ -530,6 +535,11 @@ function App() {
           </button>
         )}
       </div>
+      {audioError && (
+        <p className="experience-status" role="status">
+          {audioError}
+        </p>
+      )}
       <audio ref={audioRef} loop preload="none" src={asset("wedding-melody.mp3")} />
     </>
   );
