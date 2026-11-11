@@ -10,34 +10,34 @@ const asset = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`;
 
 const events = [
   {
-    weekday: "Budhvaar",
+    weekday: "बुधवार",
     day: "09",
-    name: "Lagun",
-    time: "5:00 PM se",
+    name: "लगुन",
+    time: "5:00 PM से",
     detail:
-      "Shubh muhurat mein lagun ki rasm, parivaar aur apnon ke beech.",
+      "शुभ मुहूर्त में लगुन की रस्म, परिवार और अपनों के बीच।",
   },
   {
-    weekday: "Guruvaar",
+    weekday: "गुरुवार",
     day: "10",
-    name: "Mehendi",
-    time: "4:00 PM se",
-    detail: "Mehendi, chai aur lok geet ke saath ek pyaari shaam.",
-    attire: "Peela aur hara, halke kapde",
+    name: "मेहंदी",
+    time: "4:00 PM से",
+    detail: "मेहंदी, चाय और लोकगीतों के साथ एक प्यारी शाम।",
+    attire: "पीला और हरा, हल्के कपड़े",
   },
   {
-    weekday: "Shukrawaar",
+    weekday: "शुक्रवार",
     day: "11",
-    name: "Shaadi",
-    time: "Baraat 4:00 PM",
-    detail: "Baraat ki dhoom, phere aur saat vachan mandap ke neeche.",
+    name: "शादी",
+    time: "बरात 4:00 PM",
+    detail: "बरात की धूम, फेरे और सात वचन मंडप के नीचे।",
   },
   {
-    weekday: "Shanivaar",
+    weekday: "शनिवार",
     day: "12",
     name: "Reception",
-    time: "6:00 PM se",
-    detail: "Dawat, shubhkamnayein aur naach-gaana, jashn ke aakhri din.",
+    time: "6:00 PM से",
+    detail: "दावत, शुभकामनाएँ और नाच-गाना, जश्न के आखिरी दिन।",
   },
 ];
 
@@ -442,12 +442,12 @@ function App() {
 
         <section className="events-section section" id="events">
           <div className="section-heading">
-            <span className="eyebrow">Jashn</span>
-            <h2>Kaarykram</h2>
+            <span className="eyebrow" lang="hi">जश्न</span>
+            <h2 lang="hi">कार्यक्रम</h2>
             <span className="heading-rule" aria-hidden="true" />
-            <p className="section-description">
-              Chaar din, chaar khaas mauke. Aap sabke saath har rasm manane ka
-              intezaar rahega.
+            <p className="section-description" lang="hi">
+              चार दिन, चार खास मौके। आप सबके साथ हर रस्म मनाने का इंतज़ार
+              रहेगा।
             </p>
           </div>
           <div className="event-list">
@@ -457,15 +457,17 @@ function App() {
                 key={event.name}
               >
                 <div className="event-date">
-                  <span>{event.weekday}</span>
+                  <span lang="hi">{event.weekday}</span>
                   <strong>{event.day}</strong>
                   <span>December</span>
                 </div>
                 <div className="event-info">
-                  <h3>{event.name}</h3>
-                  <span className="event-time">{event.time}</span>
-                  <p>{event.detail}</p>
-                  {event.attire && <span className="attire">{event.attire}</span>}
+                  <h3 lang={event.name === "Reception" ? "en" : "hi"}>
+                    {event.name}
+                  </h3>
+                  <span className="event-time" lang="hi">{event.time}</span>
+                  <p lang="hi">{event.detail}</p>
+                  {event.attire && <span className="attire" lang="hi">{event.attire}</span>}
                 </div>
                 <span className="event-sparkle" aria-hidden="true">
                   ✳

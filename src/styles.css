@@ -526,6 +526,7 @@ a:focus-visible {
   padding-top: 72px;
   padding-bottom: 78px;
   background: #f5f5ef;
+  font-family: "Noto Serif Devanagari", var(--serif);
 }
 
 .events-section .section-heading {
@@ -596,7 +597,6 @@ a:focus-visible {
 
 .event-time {
   color: #7d8a69;
-  font-family: var(--sans);
   font-size: 10px;
 }
 
@@ -1036,17 +1036,40 @@ a:focus-visible {
   }
 
   .section {
+    padding-top: 42px;
+    padding-bottom: 42px;
     padding-right: 6%;
     padding-left: 6%;
   }
 
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
   .ceremony {
-    padding-top: 32px;
-    padding-bottom: 24px;
+    padding-top: 28px;
+    padding-bottom: 30px;
   }
 
   .reception {
-    padding-top: 24px;
+    padding-top: 36px;
+    padding-bottom: 42px;
+  }
+
+  .events-section {
+    padding-top: 42px;
+    padding-bottom: 44px;
+  }
+
+  .venue-section {
+    padding-top: 44px;
+    padding-bottom: 48px;
+  }
+
+  .thanks {
+    min-height: 250px;
+    padding-top: 40px;
+    padding-bottom: 42px;
   }
 
   .parents {
